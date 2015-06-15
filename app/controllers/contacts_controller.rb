@@ -4,6 +4,11 @@ class ContactsController < ApplicationController
   end
 
   def index
+    @contacts = Contact.all
+    @groups = Group.all
+    if params[:group]
+      @contacts = Group.find_by(name: params[:group]).contacts
+    end
     if user_signed_in?
       @contacts = current_user.contacts
     else
@@ -16,9 +21,6 @@ class ContactsController < ApplicationController
     contact_id = params[:id]
     @contact = Contact.find_by(id: contact_id)
     @contacts = @contact.full_name
-    if params[:group]
-      @contacts = Group.find_by(name: params[:group]).contacts
-    end
   end
 
   def new

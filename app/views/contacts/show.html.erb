@@ -5,5 +5,9 @@
 <h2><%= @contact.phone_number %></h2>
 <p><%= @contact.bio %></p>
 
+<% @contact.groups.each do |group| %>
+  <p><%= group.name.capitalize %></p>
+<% end %>
+
 <%= link_to "Edit", "/contacts/#{@contact.id}/edit" %>
 <%= link_to "Delete", "/contacts/#{@contact.id}", method: :delete %>

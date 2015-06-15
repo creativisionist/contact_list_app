@@ -1,4 +1,7 @@
 <h1>Contacts</h1>
+<% @groups.each do |group| %>
+  <p><a href="/contacts?group=<%= group.name %>"><%= group.name %></a></p>
+<% end %>
 
 <%= link_to "Add New Contact", "/contacts/new" %>
 
