@@ -12,7 +12,7 @@ class Contact < ActiveRecord::Base
   end
 
   # def japanese_num
-  #   "+81" + phone_number
+  #   "+81 + #{phone_number}"
   # end
   
   def group_list
