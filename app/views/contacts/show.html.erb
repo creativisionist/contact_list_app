@@ -6,7 +6,6 @@
 <p><%= @contact.bio %></p>
 
 <h2>Groups that <%= @contact.first_name %> belongs to:</h2>
-<h3><% @contact.groups.each do |group| %></h3>
   <p><%= @contact.group_list %></p>
 
 <%= link_to "Edit", "/contacts/#{@contact.id}/edit" %>
