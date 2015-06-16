@@ -1,10 +1,5 @@
 class ContactsController < ApplicationController
-  def home
-    @contact = Contact.first
-  end
-
   def index
-    @contacts = Contact.all
     @groups = Group.all
     if params[:group]
       @contacts = Group.find_by(name: params[:group]).contacts
