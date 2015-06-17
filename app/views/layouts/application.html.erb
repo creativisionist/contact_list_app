@@ -69,8 +69,15 @@
     <%= submit_tag "Search", class: "btn btn-default", type: "submit" %>
   <% end %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<div class = "container">
+  <% flash.each do |name, message| %>
+    <div class="alert alert-<%= name %> alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><%= message %>
+    </div>
+  <% end %>
+
+
+</div>
 
 <%= yield %>
 

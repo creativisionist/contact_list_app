@@ -1,11 +1,10 @@
 class ContactsController < ApplicationController
   def index
     @groups = Group.all
-    if params[:group]
-      @contacts = Group.find_by(name: params[:group]).contacts
-    end
-    if user_signed_in?
-      @contacts = current_user.contacts
+    if current_user && params[:group] == nil
+      @contacts = Contact.all
+    elsif params[:group]
+      @contacts = Group.find_by(name: params[:group]).contacts.where(user_id: current_user.id)
     else
       flash[:info] = "Please sign in to see your contacts."
       redirect_to "/users/sign_in"
